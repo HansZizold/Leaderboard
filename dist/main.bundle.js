@@ -7,6 +7,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
+fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
+  method: 'POST',
+  body: JSON.stringify({
+    "name": "Soccer",
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
 
 /***/ }),
 /* 1 */
@@ -357,7 +368,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nmain {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 32px;\r\n}\r\n\r\nsection {\r\n  width: 40vw;\r\n  margin: 16px 64px;\r\n}\r\n\r\n.main-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n}\r\n\r\n.score-header {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n\r\nul {\r\n  margin: 16px 0;\r\n  border: 2px solid black;\r\n}\r\n\r\n.ul-scores > *:nth-child(odd) {\r\n  background-color: lightgray;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 4px;\r\n}\r\n\r\n.add-score {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 30vw;\r\n  margin: 16px 0;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 16px 0;\r\n}\r\n\r\ninput {\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.submit {\r\n  width: 10vw;\r\n  align-self: flex-end;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nmain {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 32px;\r\n}\r\n\r\nsection {\r\n  width: 40vw;\r\n  margin: 16px 64px;\r\n}\r\n\r\n.main-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n}\r\n\r\n.score-header {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n\r\nul {\r\n  margin: 16px 0;\r\n  border: 2px solid black;\r\n}\r\n\r\n.ul-scores > *:nth-child(odd) {\r\n  background-color: lightgray;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 4px;\r\n}\r\n\r\n.add-score {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 30vw;\r\n  margin: 16px 0;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 16px 0;\r\n}\r\n\r\ninput {\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.submit {\r\n  width: 10vw;\r\n  align-self: flex-end;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
