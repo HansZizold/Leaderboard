@@ -14,6 +14,8 @@ All data is preserved thanks to the external Leaderboard API service.
 - *Webpack Module Bundler*
 
 ## HISTORY OF CHANGES
+**2022 Jun 22: Adding scores and refresh button functionalities added through the API.**
+
 **2022 Jun 21: Project started with basic HTML/CSS functionality for setup project.**
 
 ## LIVE DEMO: 
