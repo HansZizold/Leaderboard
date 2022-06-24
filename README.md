@@ -13,7 +13,16 @@ All data is preserved thanks to the external Leaderboard API service.
 
 - *Webpack Module Bundler*
 
+## RESOURCES
+- [Fontawesome Icons](https://fontawesome.com/)
+
+- [FlatIcon](https://www.flaticon.com/)
+
+- [Lunapic](https://www6.lunapic.com/editor/) 
+
 ## HISTORY OF CHANGES
+**2022 Jun 24: Look and Feel improved.**
+
 **2022 Jun 22: Adding scores and refresh button functionalities added through the API.**
 
 **2022 Jun 21: Project started with basic HTML/CSS functionality for setup project.**
@@ -59,4 +68,3 @@ Coming soon ...
 
 - Microverse
 
-- Soccer Ball by Arthur Shlain from NounProject.com
