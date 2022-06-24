@@ -12,9 +12,11 @@ submitScore.addEventListener('click', (e) => {
   const points = document.getElementById('points');
   addAPICountries(country.value, points.value);
   addhtmlCountry(country.value, points.value);
+  country.value = '';
+  points.value = '';
 });
 
-refreshScores.addEventListener('click', () => {
+const refresh = () => {
   document.querySelectorAll('.li-country').forEach((e) => e.remove());
   const rankingFIFA = retrieveCountries();
   rankingFIFA.then((value) => {
@@ -23,4 +25,9 @@ refreshScores.addEventListener('click', () => {
       addhtmlCountry(e.user, e.score);
     });
   });
+};
+refresh();
+
+refreshScores.addEventListener('click', () => {
+  refresh();
 });

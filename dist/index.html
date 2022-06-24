@@ -5,35 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-  <title>Leaderboard</title>
+  <title>FIFA Ranking</title>
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 <body>
-  <main>
+  <main class="main">
     <header>
-      <h1>Leaderboard</h1>
+      <h1>FIFA World Ranking</h1>
     </header>
     <div class="main-container">
       <section>
         <div class="score-header">
-          <h2>Recent Scores</h2>
-          <button type="button">Refresh</button>
+          <h2>Latest World Ranking</h2>
+          <button type="button" id="refresh">
+            Order <i class="fas fa-futbol"></i>
+          </button>
         </div>
         <ul class="ul-scores">
-          <li>Hans: 100</li>
-          <li>Gaby: 80</li>
-          <li>Leo: 70</li>
-          <li>Brita: 120</li>
-          <li>Carlos: 140</li>
-          <li>Paul: 160</li>
-          <li>Sonia: 200</li>
         </ul>
       </section>
       <div class="add-score">
-        <h2>Add Your Score</h2>
+        <h2>Add Country</h2>
         <form action="#">
-          <input type="text" required placeholder="Your name" maxlength="50">
-          <input type="text" required placeholder="Your score" maxlength="5">
-          <input type="submit" value="Submit" class="submit">
+          <input type="text" id="country" required placeholder="Enter Country..." maxlength="20" autocomplete="off">
+          <input type="text" id="points" required placeholder="Enter Points..." maxlength="8" autocomplete="off">
+          <input type="submit" value="" class="submit">
         </form>
       </div>
     </div>
