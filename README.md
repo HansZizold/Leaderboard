@@ -58,3 +58,5 @@ Coming soon ...
 ## ACKNOWLEDGEMENTS: 
 
 - Microverse
+
+- Soccer Ball by Arthur Shlain from NounProject.com

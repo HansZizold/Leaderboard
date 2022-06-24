@@ -5,19 +5,43 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _modules_addapicountries_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _modules_retrievecountries_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _modules_addhtmlcountry_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16);
 
 
-fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {
-  method: 'POST',
-  body: JSON.stringify({
-    "name": "Soccer",
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+
+
+
+const submitScore = document.querySelector('.submit');
+const refreshScores = document.getElementById('refresh');
+
+submitScore.addEventListener('click', (e) => {
+  e.preventDefault();
+  const country = document.getElementById('country');
+  const points = document.getElementById('points');
+  (0,_modules_addapicountries_js__WEBPACK_IMPORTED_MODULE_1__["default"])(country.value, points.value);
+  (0,_modules_addhtmlcountry_js__WEBPACK_IMPORTED_MODULE_3__["default"])(country.value, points.value);
+  country.value = '';
+  points.value = '';
+});
+
+const refresh = () => {
+  document.querySelectorAll('.li-country').forEach((e) => e.remove());
+  const rankingFIFA = (0,_modules_retrievecountries_js__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  rankingFIFA.then((value) => {
+    value.result.sort((a, b) => b.score - a.score);
+    value.result.forEach((e) => {
+      (0,_modules_addhtmlcountry_js__WEBPACK_IMPORTED_MODULE_3__["default"])(e.user, e.score);
+    });
+  });
+};
+refresh();
+
+refreshScores.addEventListener('click', () => {
+  refresh();
+});
+
 
 /***/ }),
 /* 1 */
@@ -363,12 +387,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(12), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(13), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nmain {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n}\r\n\r\nheader {\r\n  margin: 32px;\r\n}\r\n\r\nsection {\r\n  width: 40vw;\r\n  margin: 16px 64px;\r\n}\r\n\r\n.main-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n}\r\n\r\n.score-header {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n\r\nul {\r\n  margin: 16px 0;\r\n  border: 2px solid black;\r\n}\r\n\r\n.ul-scores > *:nth-child(odd) {\r\n  background-color: lightgray;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 4px;\r\n}\r\n\r\n.add-score {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 30vw;\r\n  margin: 16px 0;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 16px 0;\r\n}\r\n\r\ninput {\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.submit {\r\n  width: 10vw;\r\n  align-self: flex-end;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.main {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  min-height: 100%;\r\n  height: 100vh;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\r\n}\r\n\r\nh1 {\r\n  color: #326295;\r\n  font-size: 64px;\r\n  font-weight: bolder;\r\n}\r\n\r\nh2 {\r\n  color: #326295;\r\n  font-size: 20px;\r\n  font-weight: bolder;\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  background: none;\r\n  font-size: xx-large;\r\n  color: #326295;\r\n  cursor: pointer;\r\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\r\n  font-weight: bolder;\r\n}\r\n\r\nbutton:hover {\r\n  background-size: 26px;\r\n}\r\n\r\nheader {\r\n  margin: 32px;\r\n}\r\n\r\nsection {\r\n  width: 40vw;\r\n  margin: 16px 48px;\r\n}\r\n\r\n.main-container {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n}\r\n\r\n.score-header {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n\r\nul {\r\n  margin: 16px 0;\r\n  border: 4px solid  #326295;\r\n  border-radius: 4px;\r\n  min-height: 48vh;\r\n}\r\n\r\n.ul-scores > *:nth-child(odd) {\r\n  background-color: #326295;\r\n  color: white;\r\n}\r\n\r\nli {\r\n  list-style: none;\r\n  padding: 4px;\r\n}\r\n\r\n.add-score {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: 30vw;\r\n  margin: 16px 0;\r\n}\r\n\r\nform {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 28px 0;\r\n}\r\n\r\n#country,\r\n#points {\r\n  color: white;\r\n  padding-left: 8px;\r\n}\r\n\r\n::placeholder {\r\n  color: white;\r\n  opacity: 0.6;\r\n  padding: 8px;\r\n}\r\n\r\ninput {\r\n  margin-bottom: 16px;\r\n  border: 4px solid  #326295;\r\n  border-radius: 4px;\r\n  background-color: #326295;\r\n  font-size: larger;\r\n}\r\n\r\n.submit {\r\n  align-self: flex-start;\r\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n  background-color: white;\r\n  background-size: cover;\r\n  border: none;\r\n  height: 48px;\r\n  width: 48px;\r\n  cursor: pointer;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -489,6 +520,118 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+/* 11 */
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+
+  if (!url) {
+    return url;
+  }
+
+  url = String(url.__esModule ? url.default : url); // If url is already wrapped in quotes, remove them
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 12 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "2a9970376567d16d81d5.png";
+
+/***/ }),
+/* 13 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "7906a5b631d0bda9765b.png";
+
+/***/ }),
+/* 14 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const addAPICountries = async (country, points) => {
+  try {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/:zJ3VxmhQ4pXWcmGY0ZoH/scores/', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: country,
+        score: points,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    const countries = response.json();
+    return countries;
+  } catch (error) {
+    return (error);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addAPICountries);
+
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const retrieveCountries = async () => {
+  try {
+    const response = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/:zJ3VxmhQ4pXWcmGY0ZoH/scores/');
+    const countries = response.json();
+    return countries;
+  } catch (error) {
+    return (error);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (retrieveCountries);
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const addhtmlCountry = (country, points) => {
+  const countryContainer = document.querySelector('.ul-scores');
+  const countryItem = document.createElement('li');
+  countryItem.className = 'li-country';
+  countryItem.innerHTML += `${country}: ${points}`;
+  countryContainer.appendChild(countryItem);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addhtmlCountry);
+
 
 /***/ })
 ],
